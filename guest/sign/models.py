@@ -13,8 +13,8 @@ class Event(models.Model):
     start_time = models.DateTimeField('events time')
     create_time = models.DateTimeField(auto_now=True)
 
-def __str__(self):
-    return self.name
+    def __unicode__(self):
+        return self.name
 #嘉宾表
 class Guest(models.Model):
     event = models.ForeignKey(Event)
@@ -24,8 +24,8 @@ class Guest(models.Model):
     sign = models.BooleanField()
     create_time = models.DateTimeField(auto_now=True)
 
-class Meta:
-    unique_together = ("event", "phone")
+    class Meta:
+        unique_together = ("event", "phone")
 
-def __str__(self):
-    return self.realname
+    def __unicode__(self):
+        return self.realname
